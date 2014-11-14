@@ -1,0 +1,94 @@
+
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+@import 'font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+// Component styles are injected through grunt
+// injector
+@import 'account/login/login.scss';
+@import 'admin/admin.scss';
+@import 'directives/nav-bar/nav-bar.scss';
+@import 'foundation/foundation.scss';
+@import 'foundation/foundation/_functions.scss';
+@import 'foundation/foundation/_settings.scss';
+@import 'foundation/foundation/components/_accordion.scss';
+@import 'foundation/foundation/components/_alert-boxes.scss';
+@import 'foundation/foundation/components/_block-grid.scss';
+@import 'foundation/foundation/components/_breadcrumbs.scss';
+@import 'foundation/foundation/components/_button-groups.scss';
+@import 'foundation/foundation/components/_buttons.scss';
+@import 'foundation/foundation/components/_clearing.scss';
+@import 'foundation/foundation/components/_dropdown-buttons.scss';
+@import 'foundation/foundation/components/_dropdown.scss';
+@import 'foundation/foundation/components/_flex-video.scss';
+@import 'foundation/foundation/components/_forms.scss';
+@import 'foundation/foundation/components/_global.scss';
+@import 'foundation/foundation/components/_grid.scss';
+@import 'foundation/foundation/components/_icon-bar.scss';
+@import 'foundation/foundation/components/_inline-lists.scss';
+@import 'foundation/foundation/components/_joyride.scss';
+@import 'foundation/foundation/components/_keystrokes.scss';
+@import 'foundation/foundation/components/_labels.scss';
+@import 'foundation/foundation/components/_magellan.scss';
+@import 'foundation/foundation/components/_offcanvas.scss';
+@import 'foundation/foundation/components/_orbit.scss';
+@import 'foundation/foundation/components/_pagination.scss';
+@import 'foundation/foundation/components/_panels.scss';
+@import 'foundation/foundation/components/_pricing-tables.scss';
+@import 'foundation/foundation/components/_progress-bars.scss';
+@import 'foundation/foundation/components/_range-slider.scss';
+@import 'foundation/foundation/components/_reveal.scss';
+@import 'foundation/foundation/components/_side-nav.scss';
+@import 'foundation/foundation/components/_split-buttons.scss';
+@import 'foundation/foundation/components/_sub-nav.scss';
+@import 'foundation/foundation/components/_switches.scss';
+@import 'foundation/foundation/components/_tables.scss';
+@import 'foundation/foundation/components/_tabs.scss';
+@import 'foundation/foundation/components/_thumbs.scss';
+@import 'foundation/foundation/components/_toolbar.scss';
+@import 'foundation/foundation/components/_tooltips.scss';
+@import 'foundation/foundation/components/_top-bar.scss';
+@import 'foundation/foundation/components/_type.scss';
+@import 'foundation/foundation/components/_visibility.scss';
+@import 'foundation/normalize.scss';
+@import 'main/main.scss';
+@import 'request/request.scss';
+// endinjector
+
+header{
+
+	height: 44px;
+	background-color: #eee;
+
+	h1{
+		margin: 0;
+		float: left;
+		line-height: 44px; 
+
+		.logo{
+			width: auto;
+			height: 30px;
+			position: relative;
+			top: -5px;
+			margin-left: .5em;
+		}
+	}
+}

@@ -1,0 +1,7 @@
+.row
+	.small-12.columns
+		h2 Welcome aboard. Back to your {{ query.type }} request!
+		textarea(ngModel="query.content" , name="string")
+
+		a.round.button(ng-click='submitRequest()') Find me a specialist!
+			i.fa.fa-arrow-right

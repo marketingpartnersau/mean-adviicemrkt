@@ -1,0 +1,45 @@
+.home{
+
+    .search{
+        margin-bottom: 0;
+        color: $primary-color;
+    }
+
+    ul.f-dropdown,
+    ul.results{
+
+        margin-left: 0;
+
+        li{
+            list-style: none;
+
+            &.label{
+                display: block;
+                background-color: #eee;
+                color: #aaa;
+                text-align: left;
+                border: 1px solid #bbb;
+                border-top: none;
+                margin: 0;
+            }
+        }
+
+        a{
+            display: block;
+            line-height: rem-calc(44px);
+            border: 1px solid #bbb;
+            border-top: none;
+            padding: 0 0.5em;
+            color: #777;
+            background-color: $secondary-color;
+
+            i{
+                line-height: rem-calc(44px);
+            }
+        }
+    }
+
+    .specialists-button{
+        margin-top: 1em;
+    }
+}
