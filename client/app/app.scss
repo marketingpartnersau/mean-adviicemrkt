@@ -73,7 +73,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'request/request.scss';
 // endinjector
 
-header{
+nav{
 
 	height: 44px;
 	background-color: #eee;
@@ -91,4 +91,16 @@ header{
 			margin-left: .5em;
 		}
 	}
+}
+
+body{
+	background-color: #404040;
+}
+
+
+div.card{
+	background-color: #fff;
+	border: 1px solid $secondary-color;
+	padding: 1em;
+	@include radius();
 }

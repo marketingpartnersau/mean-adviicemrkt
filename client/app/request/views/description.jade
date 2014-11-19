@@ -1,7 +1,11 @@
 .row
 	.small-12.columns
-		h2 Cool, you need a {{ query.type }} specialist. Anything else you want to ask?
-		textarea(ng-model='query.content')
+		.card
+			header
+				p I am looking for a {{ query.type }} specialist, to help me...
+			textarea(ng-model='query.content')
+			hr
+			p
+				a.right.small.round.button(ng-click='submitRequest()') Create Request
 
-		a.round.button(ng-click='submitRequest()') Find me a specialist!
-			i.fa.fa-arrow-right
+			.clearfix

@@ -5,16 +5,20 @@ nav-bar
     h2 Connect with a specialist advice giver.
     p(ng-hide='search.focus') adviicemrkt has specialists in Accounting, Financial Planning, Legal, Mortgage Lending and Real Estate. They are ready and waiting to chat with you - go meet your match!
 
-    form(name='search-form', novalidate)
-      div
-        label Get help quick!
-        input.search(type='text', name='search-query', ng-model='search.choice', ng-focus='search.focus = true', placeholder='e.g. I am looking for', typeahead='result.label for result in search.results', typeahead-on-select='onSelect', required)
+    .card
+      header
+        p Search our specialists
 
-        ul.results(ng-hide='search.choice.length >= 1 || search.focus')
-          li.label Suggestions
-          li(ng-repeat='default in search.defaults')
-            a(ui-sref='request.description({ type: default.value })') {{ default.label }}
-              i.right.fa.fa-chevron-right
+      form(name='search-form', novalidate)
+        div
+          label Get help quick!
+          input.search(type='text', name='search-query', ng-model='search.choice', ng-focus='search.focus = true', placeholder='I am looking for...', typeahead='result.label for result in search.results', typeahead-on-select='onSelect', required)
+
+          ul.results(ng-hide='search.choice.length >= 1 || !search.focus')
+            li.label Suggestions
+            li(ng-repeat='default in search.defaults')
+              a(ui-sref='request.description({ type: default.value })') {{ default.label }}
+                i.right.fa.fa-chevron-right
 
     hr.clearfix(style='margin-top: 1em')
     p.specialists-button(ng-hide='search.focus')
