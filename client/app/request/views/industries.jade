@@ -1,0 +1,7 @@
+.row
+	.small-12.columns
+		h2 Which Industry do you specialise in?
+
+		ul.button-group.radius.stack
+			li(ng-repeat='industry in industries')
+				a.button(ui-sref='request.all({ type: industry.slug })') {{ industry.name }}

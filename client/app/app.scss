@@ -26,6 +26,8 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'directives/nav-bar/nav-bar.scss';
+@import 'directives/profession-block/profession-block.scss';
+@import 'directives/request-card/request-card.scss';
 @import 'foundation/foundation.scss';
 @import 'foundation/foundation/_functions.scss';
 @import 'foundation/foundation/_settings.scss';
@@ -70,8 +72,14 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'foundation/foundation/components/_visibility.scss';
 @import 'foundation/normalize.scss';
 @import 'main/main.scss';
+@import 'pitches/pitches.scss';
+@import 'professions/professions.scss';
 @import 'request/request.scss';
 // endinjector
+
+textarea{
+	color: $jet;
+}
 
 nav{
 
@@ -93,14 +101,15 @@ nav{
 	}
 }
 
-body{
-	background-color: #404040;
-}
-
 
 div.card{
 	background-color: #fff;
 	border: 1px solid $secondary-color;
 	padding: 1em;
+	margin-bottom: 1em;
 	@include radius();
+
+	p, label{
+		color: $jet;
+	}
 }

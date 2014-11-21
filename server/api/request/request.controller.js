@@ -1,12 +1,18 @@
 'use strict';
 
 var _ = require('lodash');
+var mongoose = require('mongoose');
 var Request = require('./request.model');
 
 // Get list of requests
 exports.index = function(req, res) {
-  Request.find(function (err, requests) {
-    if(err) { return handleError(res, err); }
+
+  Request.find()
+    .populate('user')
+    .populate('type')
+    .exec(function(err, requests){
+    if(err){ return handleError(res, err); }
+
     return res.json(200, requests);
   });
 };
@@ -22,6 +28,8 @@ exports.show = function(req, res) {
 
 // Creates a new request in the DB.
 exports.create = function(req, res) {
+  console.log(req.user);
+  Request.user = mongoose.Types.ObjectId(req.user);
   Request.create(req.body, function(err, request) {
     if(err) { return handleError(res, err); }
     return res.json(201, request);

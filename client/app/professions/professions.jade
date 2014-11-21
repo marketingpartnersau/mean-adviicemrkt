@@ -1,0 +1,21 @@
+nav-bar
+
+.row
+	.small-12.columns
+
+		h2 Professions 
+			a(ng-init='newProfession = false', ng-click="newProfession = true") Add new
+		
+		form.panel.editForm(name='createProfession', ng-show='newProfession', ng-submit="addProfession()")
+			label Profession title
+				input(type='text', ng-model='profession.title')
+			label
+				select(name='parent', ng-model='profession.parent', ng-options='p._id as p.title for p in professions')
+					<option value="">Select Parent (optional)</option>
+			p
+				button(type='submit') Save Profession
+				button.alert(ng-click='newProfession = false') Cancel
+
+		ul.no-bullet
+			li.panel(ng-repeat='profession in professions')
+				profession-block(profession='profession', professions='professions')

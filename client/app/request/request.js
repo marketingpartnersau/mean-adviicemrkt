@@ -16,7 +16,7 @@ angular.module('adviicemrktApp')
       })
 
       .state('request.description', {
-      	url: '/query/:type',
+      	url: '/query',
       	templateUrl: 'app/request/views/description.html',
       	controller: 'RequestDescriptionCtrl'
       })
@@ -33,9 +33,15 @@ angular.module('adviicemrktApp')
         // controller: ''
       })
 
-      .state('request.viewAll', {
+      .state('request.all', {
         url: '/all',
         templateUrl: 'app/request/views/all.html',
         controller: 'RequestAllCtrl'
+      })
+
+      .state('request.industrySelect', {
+        url: '/industry',
+        templateUrl: 'app/request/views/industries.html',
+        controller: 'RequestIndustryCtrl'
       });
   });

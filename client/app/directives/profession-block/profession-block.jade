@@ -1,0 +1,19 @@
+div
+	h4 {{ profession.title }}
+		small(ng-show='profession.parent !== null')  (child of {{profession.parent.title}})
+
+	div.view(ng-hide='editing')
+		ul.inline-list
+			li
+				a(ng-click='editing = true') Edit 
+			li
+				a(ng-click='deleteProfession()') Delete
+
+	form.editForm(ng-show='editing')
+		label Profession title
+			input(type='text', ng-model='profession.title')
+		label
+			select(name='parent', ng-model='profession.parent', ng-options='p._id as p.title for p in professions')
+		p
+			button(type='submit') Save Profession
+			button.alert(ng-click='editing = false') Cancel

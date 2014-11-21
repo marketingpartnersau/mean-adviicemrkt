@@ -5,34 +5,36 @@ angular.module('adviicemrktApp')
     $scope.message = 'Hello';
   })
 
-  .controller('RequestAllCtrl', function($scope, Request){
-    var request = new Request();
-    
-    request.$index()
-    .then(function(requests){
-      $scope.requests = requests;
-      console.log(requests);
+  .controller('RequestAllCtrl', function($scope, $http, $stateParams, Request){
+
+    var requests = new Request();
+
+    requests.$index()
+    .then(function(results){
+      console.log(results);
+      $scope.requests = results;
     });
 
   })
 
   .controller('RequestDescriptionCtrl', function($scope, $state, $stateParams, Global, Auth, Request){
 
+    console.log(Global.pendingRequest);
+
     if(Global.pendingRequest.hasOwnProperty('content')){
       $scope.query = Global.pendingRequest;
+      
     }
-    else if($stateParams.type){
-      $scope.query = {
-        type: $stateParams.type
-      };
+    else if(Global.pendingRequest.hasOwnProperty('type')){
+      $scope.query = Global.pendingRequest;
     }
 
   	$scope.submitRequest = function(){
   		if(Auth.isLoggedIn()) {
-
-  			var request = new Request($scope.query);
-        console.log(request);
-            request.$save();
+			var request = new Request($scope.query);
+      request.type = $scope.query.type._id;
+      request.user = Auth.getCurrentUser()._id;
+      request.$save();
 
   			$state.go('request.complete');
 
@@ -44,4 +46,14 @@ angular.module('adviicemrktApp')
       }
   	};
 
+  })
+
+  .controller('RequestIndustryCtrl', function($scope){
+    $scope.industries = [
+      { name: 'Real Estate', slug: 'real-estate' },
+      { name: 'Mortgage Lending', slug: 'mortgage' },
+      { name: 'Accounting', slug: 'accounting' },
+      { name: 'Financial Planning', slug: 'financial' },
+      { name: 'Legal', slug: 'legal' }
+    ];
   });

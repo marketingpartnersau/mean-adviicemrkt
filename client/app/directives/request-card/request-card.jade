@@ -1,0 +1,12 @@
+.card
+	header.context
+		img.left(src='http://placehold.it/50/50')
+		p {{ request.user.name }} requested {{ request.type.title }} advice
+
+	section.lens
+		p {{ request.content }}
+
+	footer.actions
+		ul.inline-list
+			li
+				a.small.button(ng-click='pitchThisRequest()') Pitch
