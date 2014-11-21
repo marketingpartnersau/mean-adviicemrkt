@@ -12,7 +12,7 @@ nav-bar
       form(name='search-form', novalidate)
         div
           label Get help quick!
-          input.search(type='text', name='search-query', ng-model='search.choice', ng-focus='search.focus = true', placeholder='I am looking for...', typeahead='profession._id as profession.title for profession in professions', typeahead-on-select='onSelect', required)
+          input.search(type='text', name='search-query', ng-model='search.choice', ng-focus='search.focus = true', placeholder='I am looking for...', typeahead='profession as profession.title for profession in professions', typeahead-on-select='onSelect', required)
 
           ul.results(ng-hide='search.choice.length >= 1 || !search.focus')
             li.label Suggestions
