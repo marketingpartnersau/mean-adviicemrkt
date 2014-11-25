@@ -12,12 +12,12 @@ nav-bar
       form(name='search-form', novalidate)
         div
           label Get help quick!
-          input.search(type='text', name='search-query', ng-model='search.choice', ng-focus='search.focus = true', placeholder='I am looking for...', typeahead='profession as profession.title for profession in professions', typeahead-on-select='onSelect', required)
+          input.search(type='text', name='search-query', ng-model='search.choice', ng-focus='search.focus = true', placeholder='I am looking for...', typeahead='profession as profession.title for profession in search.professions', typeahead-on-select='setRequestType(profession)', required)
 
           ul.results(ng-hide='search.choice.length >= 1 || !search.focus')
             li.label Suggestions
             li(ng-repeat='default in search.defaults')
-              a(ng-click='setRequestType(default)') I am looking for {{ default.title }} advice
+              a(ng-click='search.choice = default; setRequestType()') I am looking for {{ default.title }} advice
                 i.right.fa.fa-chevron-right
 
     hr.clearfix(style='margin-top: 1em')

@@ -13,6 +13,8 @@ angular.module('adviicemrktApp')
 
         var profession = new Profession(scope.profession);
 
+        console.log(profession);
+
       	scope.deleteProfession = function(){
   	  		profession.$delete()
   	  		.then(function(result){

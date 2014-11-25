@@ -51,4 +51,14 @@ angular.module('adviicemrktApp', [
         }
       });
     });
+  })
+
+  // DECORATORS ARE SO COOL I NEVER KNEW
+  .config(function ($provide) {
+    // change the URL of the typeahead popup to match what we're after.
+    $provide.decorator('typeaheadPopupDirective', function($delegate) {
+      var directive = $delegate[0];
+      directive.templateUrl = 'app/directives/templates/typeaheadPopup.html';
+      return $delegate;
+    });
   });

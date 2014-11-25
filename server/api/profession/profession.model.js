@@ -9,6 +9,7 @@ var ProfessionSchema = new Schema({
   	default: Date.now
   },
   title: String,
+  slug: String,
   parent: {
   	type: Schema.ObjectId,
   	ref: 'Profession'
