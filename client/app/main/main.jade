@@ -17,7 +17,7 @@ nav-bar
           ul.results(ng-hide='search.choice.length >= 1 || !search.focus')
             li.label Suggestions
             li(ng-repeat='default in search.defaults')
-              a(ng-click='search.choice = default; setRequestType()') I am looking for {{ default.title }} advice
+              a(ng-click='setRequestType(default)') I am looking for {{ default.title }} advice
                 i.right.fa.fa-chevron-right
 
     hr.clearfix(style='margin-top: 1em')

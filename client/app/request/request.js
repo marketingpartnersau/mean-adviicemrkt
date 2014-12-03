@@ -15,6 +15,12 @@ angular.module('adviicemrktApp')
       	// SIMILAR TO THE HOMEPAGE
       })
 
+      .state('request.view', {
+        url: '/view/:id',
+        templateUrl: 'app/request/views/view.html',
+        controller: 'RequestViewCtrl'
+      })
+
       .state('request.description', {
       	url: '/query',
       	templateUrl: 'app/request/views/description.html',
@@ -30,7 +36,6 @@ angular.module('adviicemrktApp')
       .state('request.complete', {
         url: '/done',
         templateUrl: 'app/request/views/complete.html',
-        // controller: ''
       })
 
       .state('request.all', {

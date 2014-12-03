@@ -20,7 +20,8 @@ angular.module('adviicemrktApp')
 
       $http.post(API, self)
       .success(function(result){
-        def.resolve(result);
+        self.data = result;
+        def.resolve(self.data);
       }, function(err){
         def.reject(err);
       });
@@ -34,7 +35,6 @@ angular.module('adviicemrktApp')
       $http.delete(API + '/' + this._id)
       .success(function(result){
         def.resolve(result);
-        console.log(result);
       }, function(err){
         def.reject(err);
       })
@@ -45,11 +45,26 @@ angular.module('adviicemrktApp')
     Profession.prototype.$index = function(){
       var def = $q.defer();
       var self = this;
-
       $http.get(API)
       .success(function(result){
+        def.resolve(self);
+        self.contents = result;
+      }, function(err){
+        def.reject(err);
+        console.log(err)
+      });
+
+      return def.promise;
+    };
+
+    Profession.prototype.$parents = function(){
+      var def = $q.defer();
+      var self = this;
+
+      $http.get(API + '/parents')
+      .success(function(result){
         def.resolve(result);
-        self = result;
+        self.contents = result;
       }, function(err){
         def.reject(err);
       });
@@ -63,8 +78,8 @@ angular.module('adviicemrktApp')
 
       $http.get(API + id)
       .success(function(result){
-        def.resolve(result);
-        self = result;
+        self.contents = result;
+        def.resolve(self);
       }, function(err){
         def.reject(err);
       });

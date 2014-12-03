@@ -5,9 +5,9 @@ var mongoose = require('mongoose');
 var Request = require('./request.model');
 
 // Get list of requests
-exports.index = function(req, res) {
-
-  Request.find()
+exports.query = function(req, res) {
+  console.log(req.query);
+  Request.find(req.query)
     .populate('user')
     .populate('type')
     .exec(function(err, requests){
@@ -15,6 +15,7 @@ exports.index = function(req, res) {
 
     return res.json(200, requests);
   });
+
 };
 
 // Get a single request

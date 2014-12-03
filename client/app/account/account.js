@@ -9,7 +9,7 @@ angular.module('adviicemrktApp')
         controller: 'LoginCtrl'
       })
       .state('signup', {
-        url: '/signup',
+        url: '/register',
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupCtrl'
       })

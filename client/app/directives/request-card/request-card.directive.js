@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('adviicemrktApp')
-  .directive('requestCard', function ($modal, Pitch) {
+  .directive('requestCard', function ($modal, Pitch, Global) {
     return {
       templateUrl: 'app/directives/request-card/request-card.html',
       restrict: 'EA',
@@ -21,6 +21,11 @@ angular.module('adviicemrktApp')
           }).result.then(function(result){
             // After pitched or cancelled
           });
+        };
+
+        scope.signupSpecialist = function(request){
+          Global.requestPendingPitch = request;
+          Global.predictedUserType = 'specialist';
         };
       }
     };

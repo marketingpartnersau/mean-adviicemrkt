@@ -137,6 +137,26 @@ angular.module('adviicemrktApp')
       },
 
       /**
+       * Check if a user is a client
+       *
+       * @return {Boolean}
+       */
+
+      isClient: function() {
+        return currentUser.role === 'client';
+      },
+
+      /**
+       * Check if a user is a client
+       *
+       * @return {Boolean}
+       */
+
+      isSpecialist: function() {
+        return currentUser.role === 'specialist';
+      },
+
+      /**
        * Get auth token
        */
       getToken: function() {

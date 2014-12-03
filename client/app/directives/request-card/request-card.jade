@@ -10,3 +10,4 @@
 		ul.inline-list
 			li
 				a.small.button(ng-click='pitchThisRequest()') Pitch
+				a.small.button(ng-hide="!auth.isLoggedIn()" ng-click='signupSpecialist()') Pitch

@@ -9,9 +9,10 @@ var Tools = require('../../components/tools');
 exports.index = function(req, res) {
   // GET TOP LEVEL PROFESSIONS
   Profession
-    .find({ parent: null })
+    .find()
     .exec(function(err, professions){
-      console.log(professions);
+      if(err) { return handleError(res, err); }
+      return res.json(200, professions);
     });
   // , function(err, professions){
 

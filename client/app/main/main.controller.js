@@ -6,12 +6,12 @@ angular.module('adviicemrktApp')
     var professions = new Profession();
     professions.$index()
     .then(function(result){
-
+      console.log(result);
       // set ALL categories into scope variable for typeahead
-      $scope.search.professions = result;
+      $scope.search.professions = result.contents;
 
       // sets the defaults as parent categories
-      $scope.search.defaults    = _.filter(result, function(obj){
+      $scope.search.defaults    = _.filter(result.contents, function(obj){
         return obj.parent === null;
       });
 
@@ -24,8 +24,8 @@ angular.module('adviicemrktApp')
       professions: []
     };
 
-    $scope.setRequestType = function(){
-      Global.pendingRequest.type = $scope.search.choice;
+    $scope.setRequestType = function(profession){
+      Global.pendingRequest.type = profession;
       $state.go('request.description', { type : Global.pendingRequest.type });
     };
 
